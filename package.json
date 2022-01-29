@@ -1,0 +1,23 @@
+{
+  "name": "estore-mern-production",
+  "version": "1.0.0",
+  "description": "\"Fashion Ecommerce Store with Mern and Nginx\"",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Burgesskeith/inventory-master.git"
+  },
+  "type": "module",
+  "author": "Keith Burgess",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Burgesskeith/inventory-master/issues"
+  },
+  "homepage": "https://github.com/Burgesskeith/inventory-master#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
