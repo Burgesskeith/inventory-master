@@ -1,5 +1,4 @@
 {
-    _id: "1",
     name: "Brown Boots",
     image: "/images/footwear/boot.jpg",
     description:
@@ -12,7 +11,6 @@
     numReviews: 12,
 },
 {
-    _id: "2",
     name: "Blue Dress",
     image: "/images/dresses/bluedress.jpg",
     description:
@@ -25,7 +23,6 @@
     numReviews: 8,
 },
 {
-    _id: "3",
     name: "Smart Sandals",
     image: "/images/footwear/sandals.jpg",
     description:
@@ -38,7 +35,6 @@
     numReviews: 12,
 },
 {
-    _id: "4",
     name: "Orange Dress",
     image: "/images/dresses/orangedress.jpg",
     description:
@@ -51,7 +47,6 @@
     numReviews: 12,
 },
 {
-    _id: "5",
     name: "Green Dress",
     image: "/images/dresses/greendress.jpg",
     description:
@@ -64,7 +59,6 @@
     numReviews: 10,
 },
 {
-    _id: "6",
     name: "Beach Slipper",
     image: "/images/footwear/slipper.jpg",
     description:
