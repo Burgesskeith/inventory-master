@@ -90,7 +90,8 @@ p {
 .btn:hover {
   background: #563434;
 }
-.header {
+.header,
+.hero {
   background: radial-gradient(#fff, #ffd6d6);
 }
 .header .row {

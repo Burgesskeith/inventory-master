@@ -1,19 +1,25 @@
 import React from 'react';
 import './App.css';
-import Banner from './components/Banner';
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route
+} from "react-router-dom";
+import NavBar from './components/NavBar';
+import HomeScreen from './components/HomeScreen';
+import ProductDetails from './components/ProductDetails';
 import Footer from './components/Footer';
-import Header from './components/Header';
-import Products from './components/Products';
-import Testimonials from './components/Testimonials';
 function App() {
     return (
-        <div>
-            <Header />
-            <Products />
-            <Banner />
-            <Testimonials />
+        <Router>
+            <NavBar />
+            <Routes>
+                <Route path="/" element={<HomeScreen />} />
+                <Route path='/product/:id' element={<ProductDetails />} />
+            </Routes>
             <Footer />
-        </div>
+        </Router>
+
     );
 }
 
