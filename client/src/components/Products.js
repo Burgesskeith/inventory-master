@@ -1,24 +1,27 @@
-import React, { useState,useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { listProducts } from "../actions/productActions";
 import Product from './Product';
-
+import Loading from './Loading';
+import Error from './Error';
 function Products() {
-    const [products, setProducts] = useState([]);
-    useEffect(()=>{
-        const fetchProducts = async ()=>{
-            const {data} = await axios.get("/api/products");
-            setProducts(data);
-        }
-        fetchProducts();
-    },[]);
+    const dispatch = useDispatch();
+    const productList = useSelector(state => state.productList);
+    const { loading, products, error } = productList;
+    useEffect(() => {
+        dispatch(listProducts());
+    }, []);
+
     return (
         <div className="small-container">
             <h1 className="title">Latest Products</h1>
-            <div className="row">
-                {products.map(product => (
-                    <Product product={product} key={product._id} />
-                ))}
-            </div>
+            {loading ? <Loading /> : error ? <Error error={error} /> : (
+                <div className="row">
+                    {products.map(product => (
+                        <Product product={product} key={product._id} />
+                    ))}
+                </div>
+            )}
         </div>
     );
 }

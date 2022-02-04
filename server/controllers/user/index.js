@@ -25,7 +25,7 @@ import verifyToken from "../../middlewares/auth/index.js";
       Access Type : Public
       Validations : 
           a) Check Valid Email,name and password
-      Description : User Registration 
+      Description : User Registration - working
 */
 router.post(
   "/register",
@@ -65,7 +65,7 @@ router.post(
       Access Type : Public
       Validations : 
           a) Check Valid Email and verify if password is the same
-      Description : User Login 
+      Description : User Login - working
 */
 router.post("/login", loginRules(), errorMiddleware, async (req, res) => {
   try {
@@ -97,7 +97,7 @@ router.post("/login", loginRules(), errorMiddleware, async (req, res) => {
       Method : GET
       Payload : Extract _id from access token (x-auth-token from headers)
       Access Type : Private
-      Description : User Profile  
+      Description : User Profile  - working
 */
 router.get("/profile", verifyToken, async (req, res) => {
   try {
@@ -124,7 +124,7 @@ router.get("/profile", verifyToken, async (req, res) => {
       Method : PUT
       Payload : Extract _id from access token (x-auth-token from headers)
       Access Type : Private/User
-      Description : User Update Profile  
+      Description : User Update Profile  - not working
 */
 // response format same as register route (no validation rules needed)
 //  didn't get this one working
@@ -178,7 +178,7 @@ router.put("/profile", verifyToken, async (req, res) => {
       Method : GET
       Payload : Extract _id from access token (x-auth-token from headers)
       Access Type : Private/Admin
-      Description : Get All the Users of LifeStyle Store 
+      Description : Get All the Users of LifeStyle Store - working
 */
 // response format array of users
 router.get("/", verifyToken, async (req, res) => {
@@ -206,7 +206,7 @@ router.get("/", verifyToken, async (req, res) => {
       Access Type : Private/Admin
       Description : Delete User 
 */
-// response format : User Deleted Succesfully
+// response format : User Deleted Succesfully - working
 
 router.delete("/:id", verifyToken, async (req, res) => {
   try {
@@ -232,7 +232,7 @@ router.delete("/:id", verifyToken, async (req, res) => {
       Method : GET
       Payload : Extract _id from access token (x-auth-token from headers) and req.params.id
       Access Type : Private/Admin
-      Description : Get User Details by ID from Admin
+      Description : Get User Details by ID from Admin - working
 */
 // response format : user object
 router.get("/:id", verifyToken, async (req, res) => {

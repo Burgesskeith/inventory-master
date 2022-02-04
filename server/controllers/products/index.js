@@ -59,7 +59,7 @@ router.get("/:id", async (req, res) => {
     Description : Delete Product by ID
 */
 //response format : Product deleted succesfully
-// not working
+//  working
 
 router.delete("/:productId", verifyToken, async (req, res) => {
   try {
@@ -72,13 +72,13 @@ router.delete("/:productId", verifyToken, async (req, res) => {
     const userId = product.user;
 
     const user = await User.findById(userId);
-    if (!user) {
-      return res(401).json({ msg: "That user was not found" });
-    }
+    // if (!user) {
+    //   return res(401).json({ msg: "That user was not found" });
+    // }
     if (!user.isAdmin) {
       return res.status(401).json({ msg: "Only available to admins" });
     }
-    await Product.deleteOne({ productId });
+    await Product.deleteOne({ _id: productId });
     res.status(200).json({ msg: "Product deleted successfully" });
   } catch (error) {
     console.error(error);
@@ -90,68 +90,63 @@ router.delete("/:productId", verifyToken, async (req, res) => {
     Method : POST
     Payload : Extract _id from access token (x-auth-token from headers)
     Access Type : Private/Admin
-    Description : Insert a New Product
+    Description : Insert a New Product - not working
 */
 // response format is product object
-router.post("/add", errorMiddleware, verifyToken, async (req, res) => {
-  try {
-    let userID = req.user._id;
-    console.log(req.user._id);
+// router.post("/add", verifyToken, async (req, res) => {
+//   try {
+//     console.log("Were here");
+//     let userID = req.user._id;
+//     console.log(req.user._id);
 
-    const productData = await Product.findOne({ user: userID });
-    if (!productData) {
-      return res.status(404).json({ msg: "User not found" });
-    }
-    res.send("We're at this point");
+//     const productData = await Product.findOne({ _id: userID });
+//     if (!productData) {
+//       return res.status(404).json({ msg: "User not found" });
+//     }
 
-    productData.products.push(req.body);
-    await productData.save();
-    res.status(200).json({ msg: "Product added successfully" });
-  } catch (error) {
-    console.error(error);
-  }
-});
+//     productData.products.push(req.body);
+//     console.log(productData);
+//     // await productData.save();
+//     res.status(200).json({ msg: "Product added successfully" });
+//   } catch (error) {
+//     console.error(error);
+//   }
+// });
 
 /*
     API EndPoint : /api/products/:id
     Method : PUT
     Payload : req.params.id and  Extract _id from access token (x-auth-token from headers)
     Access Type : Private/Admin
-    Description : Update a Product
+    Description : Update a Product - not working
 */
 //response format is updated product object
 
-// router.put(
-//   "/:productId",
-//   errorMiddleware,
-//   verifyToken,
-//   async (req, res) => {
-//     try {
+// router.put("/:productId", verifyToken, async (req, res) => {
+//   try {
+//     let userID = req.user._id;
+//     console.log(userID);
+//     let productToChange = req.params.productId;
 
-//       let userID = req.user._id;
-//       console.log(userID);
-// let productToChange = req.params.productId;
-
-// let user = await Product.findOne({ user: userID });
-// if (!user) {
-//   return res.status(404).json({ msg: "Can't find that user" });
-// }
-// let product = user.Products.findIndex((elem) => {
-//   return elem._id == productToChange;
-// });
-// if (product == -1) {
-//   return res.status(404).json({ msg: "Can't find a product with that ID" });
-// }
-// let oldProcuctsId = user.Products[product]._id; //old id
-// user.Products[product] = req.body; //updating with new data
-// user.Products[product]._id = oldProcuctsId;
-// await user.save();
-//       res.status(200).json({ msg: "Product edited successfully" });
-//     } catch (error) {
-//       console.error(error);
+//     let user = await Product.findOne({ user: userID });
+//     if (!user) {
+//       return res.status(404).json({ msg: "Can't find that user" });
 //     }
+//     let product = user.Products.findIndex((elem) => {
+//       return elem._id == productToChange;
+//     });
+//     if (product == -1) {
+//       return res.status(404).json({ msg: "Can't find a product with that ID" });
+//     }
+//     let oldProcuctsId = user.Products[product]._id; //old id
+//     user.Products[product] = req.body; //updating with new data
+//     user.Products[product]._id = oldProcuctsId;
+//     await user.save();
+//     res.status(200).json({ msg: "Product edited successfully" });
+//   } catch (error) {
+//     console.error(error);
 //   }
-// );
+// });
 
 /*
     API EndPoint : /api/products/:id/reviews
