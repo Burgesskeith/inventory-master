@@ -4,6 +4,7 @@ import { listProducts } from "../actions/productActions";
 import Product from './Product';
 import Loading from './Loading';
 import Error from './Error';
+
 function Products() {
     const dispatch = useDispatch();
     const productList = useSelector(state => state.productList);

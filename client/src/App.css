@@ -33,6 +33,9 @@ body {
   align-items: center;
   padding: 20px;
 }
+.navBg {
+  background: linear-gradient(to right, #ffd6d6, #fae4e4, #ffd6d6);
+}
 
 nav {
   flex: 1;
@@ -71,7 +74,7 @@ p {
 }
 .col-2 img {
   max-width: 100%;
-  padding: 50px 0;
+  padding: 0px 0;
 }
 .col-2 h1 {
   font-size: 50px;
@@ -102,7 +105,7 @@ p {
   background: radial-gradient(#fff, #ffd6d6);
 }
 .header .row {
-  margin-top: 70px;
+  margin-top: 10px;
 }
 .categories {
   margin: 70px 0;
@@ -135,6 +138,7 @@ p {
   max-height: 282px;
 }
 .title {
+  margin-top: 42px !important;
   text-align: center;
   margin: 0 auto 80px;
   position: relative;
@@ -490,7 +494,7 @@ form a {
     position: absolute;
     top: 70px;
     left: 0;
-    background: #333;
+    background: rgb(0, 0, 0);
     width: 100%;
     overflow: hidden;
     transition: max-height 0.5s;
@@ -533,4 +537,66 @@ form a {
   .cart-info p {
     display: none;
   }
+}
+
+.alert {
+  background-color: #fcb0b0;
+  border: 1px solid red;
+  border-radius: 4px;
+  padding: 10px;
+  width: 75%;
+  margin: auto;
+  color: #333;
+}
+
+.alertMessage {
+  color: red;
+  font-weight: bold;
+}
+.adminHeader {
+  margin: 2rem 0 1rem 0;
+}
+.adminContainer {
+  display: flex;
+  margin: 2rem 0 2rem 0;
+}
+.adminLeftCol {
+  padding: 0 60px 0 0;
+  width: 20%;
+  min-width: 200px;
+  padding: 12px 6px 12px 6px;
+  background-color: black;
+  color: white;
+  margin-right: 20px;
+  border-radius: 0 4px 4px 0;
+}
+.adminRightCol {
+  border: 1px solid #ccc;
+  width: 100%;
+  border-radius: 4px;
+  padding: 12px 6px 12px 6px;
+}
+.bodyP {
+  color: white;
+  margin: 0.5em 0 0.5em 0.5em;
+}
+.bodyP > a {
+  color: white;
+}
+.bodyP:hover {
+  color: #fcb0b0;
+  cursor :pointer;
+}
+
+.adminH2 {
+  margin: 1rem 0 1rem 0;
+  border-bottom: 1px solid #999;
+}
+.adminBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+.adminHeaderP {
+  margin-top: .5rem;
 }

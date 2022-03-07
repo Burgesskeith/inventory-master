@@ -2,6 +2,7 @@ import express from "express";
 const router = express.Router();
 // import models
 import Product from "../../models/Product.js";
+// import Error from "../../../client/src/components/Error.js";
 import User from "../../models/User.js";
 import verifyToken from "../../middlewares/auth/index.js";
 import bcrypt from "bcrypt";
@@ -22,6 +23,7 @@ import { errorMiddleware } from "../../middlewares/validations/index.js";
 router.get("/", async (req, res) => {
   try {
     const products = await Product.find({});
+    // res.status(404).json({ msg: "Can't load products" });
     res.status(200).json(products);
   } catch (error) {
     console.error(error);
@@ -44,6 +46,7 @@ router.get("/:id", async (req, res) => {
     if (!product) {
       return res.status(404).json({ msg: "Product Not found" });
     }
+    // res.status(404).json({ msg: "Testing error alert" });
     res.status(200).json(product);
   } catch (error) {
     console.error(error);
